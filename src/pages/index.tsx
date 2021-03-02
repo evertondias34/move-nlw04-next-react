@@ -14,7 +14,7 @@ export default function Home() {
         <title>Início | move.it</title>
       </Head>
 
-      <h1>Next CAPRICHOOO!!!</h1>
+      <h1>Next no CAPRICHOOO!!!</h1>
       <ExperienceBar />
 
       <section>
