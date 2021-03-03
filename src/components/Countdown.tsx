@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
-import { isatty } from "tty";
+import { useState, useEffect, useContext } from "react";
+import { ChallengesContext } from "../contexts/ChallengesContext";
 import styles from "../styles/components/Countdown.module.css";
 
 let countdownTimeout: NodeJS.Timeout;
 
 export function Countdown() {
+  const { startNewChanllenge } = useContext(ChallengesContext);
+
   const [time, setTime] = useState(1 * 5);
   const [isActive, setIsActive] = useState(false);
   const [hasFinished, setHasFinished] = useState(false);
@@ -33,6 +35,7 @@ export function Countdown() {
     } else if (isActive && time == 0) {
       setHasFinished(true);
       setIsActive(false);
+      startNewChanllenge();
     }
   }, [isActive, time]);
 
